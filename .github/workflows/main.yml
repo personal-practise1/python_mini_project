@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        browser: [chrome, edge]
+        browser: [chrome, firefox]
 
     steps:
 
@@ -29,7 +29,7 @@ jobs:
 
       - name: Execute Tests - ${{ matrix.browser }}
         run: |
-          pytest tests/test_login.py -v --headless --browser ${{ matrix.browser }}
+          pytest -v --headless --browser ${{ matrix.browser }}
 
       - name: Upload Report
         if: always()
@@ -37,3 +37,4 @@ jobs:
         with:
           name: report-${{ matrix.browser }}
           path: reports/
+          if-no-files-found: ignore
