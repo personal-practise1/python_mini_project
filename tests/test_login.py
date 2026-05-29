@@ -1,5 +1,6 @@
 from pages.login_page import LoginPage
 from utilities.read_config import ReadConfig
+import time
 
 class TestLogin:
     def test_valid_login(self, setup):
